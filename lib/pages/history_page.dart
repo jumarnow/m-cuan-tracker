@@ -31,7 +31,7 @@ class HistoryPage extends StatelessWidget {
               return ListTile(
                 title: Text('Amount: ${transaction.amount}'),
                 subtitle: Text(
-                    'Category ID: ${transaction.categoryId}, Wallet ID: ${transaction.walletId}'),
+                    'Category: ${transaction.categoryName}, Wallet: ${transaction.walletName}'),
                 trailing: Text(transaction.time),
               );
             },
