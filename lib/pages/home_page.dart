@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:myapp/config/app_asset.dart';
 import 'package:myapp/config/app_color.dart';
 import 'package:myapp/controller/c_home.dart';
+import 'package:myapp/pages/add_page.dart';
 import 'package:myapp/pages/history_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,7 +20,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HistoryPage(),
+      body: Obx(() {
+        return IndexedStack(
+          index: cHome.indexPage,
+          children: [
+            HistoryPage(),
+            Container(),
+            AddPage(),
+            Container(),
+            Container(),
+          ],
+        );
+      }),
       bottomNavigationBar: Obx(() {
         return Material(
           elevation: 8,

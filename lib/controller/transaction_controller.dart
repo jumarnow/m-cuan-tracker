@@ -22,4 +22,17 @@ class TransactionController extends GetxController {
       isLoading(false);
     }
   }
+
+  Future<void> addTransaction(Transaction transaction) async {
+    try {
+      isLoading(true);
+      final transactionService = TransactionService();
+      var newTransaction =
+          await transactionService.createTransaction(transaction);
+
+      transactions.add(newTransaction);
+    } finally {
+      isLoading(false);
+    }
+  }
 }

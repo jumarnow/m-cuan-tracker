@@ -1,19 +1,21 @@
 class Transaction {
-  final int id;
+  final int? id;
   final int walletId;
   final int categoryId;
   final String? walletName;
   final String? categoryName;
+  final int? isExpense;
   final int amount;
   final String time;
   final String? note;
 
   Transaction({
-    required this.id,
+    this.id,
     required this.walletId,
     required this.categoryId,
-    required this.walletName,
-    required this.categoryName,
+    this.walletName,
+    this.categoryName,
+    this.isExpense,
     required this.amount,
     required this.time,
     this.note,
@@ -26,6 +28,7 @@ class Transaction {
       categoryId: json['category_id'],
       walletName: json['wallet']['name'],
       categoryName: json['category']['name'],
+      isExpense: json['category']['is_expense'],
       amount: json['amount'],
       time: json['time'],
       note: json['note'],
