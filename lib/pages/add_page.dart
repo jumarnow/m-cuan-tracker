@@ -68,6 +68,9 @@ class AddPage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Panggil fungsi untuk menyimpan data
+                  controller.submitTransaction();
+                  // Navigasi kembali ke halaman sebelumnya setelah menyimpan
+                  Get.back();
                 },
                 child: const Text('Save Transaction'),
               ),
